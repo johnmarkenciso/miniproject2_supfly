@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header.ejs')%>
+
+    <body class="login">
+
+        <!-- navigation bar  -->
+        <%- include('./partials/adminNav.ejs')%>
+
+
+            <!-- Log In Form  -->
+            <div class="loginForm container">
+                <% if(typeof errors !='undefined' ) { %>
+                    <div class="error-msg">
+                        <i class="fa fa-times-circle"></i>
+                        <%= errors%>
+                    </div>
+                    <% } %>
+                        <form action="/login" method="POST">
+
+                            <div class="login container-fluid">
+                                <div class="container mb-3">
+                                    <label for="email" class="form-label text-light">Email address</label>
+                                    <input type="email" class="form-control" name="email" id="email"
+                                        placeholder="name@example.com" required>
+                                </div>
+                                <div class="container mb-3">
+                                    <label for="password" class="col-sm-2 col-form-label text-light">Password</label>
+                                    <input type="password" class="form-control" id="password" placeholder="password"
+                                        name="password" required>
+                                </div>
+
+                                <!-- <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label> -->
+
+                                <div class="container">
+                                    <button type="submit" class="btn btn-success mb-3 text-light">Login</button>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">
+                                        Sign-up
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
+
+
+            </div>
+
+
+
+            <!-- sign-up modal  -->
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="exampleModalLabel">Sign Up</h2>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <form action="/register" method="POST" style="border:1px solid #ccc">
+                                <div class="container">
+                                    <p>Please fill in this form to create an account.</p>
+                                    <hr>
+
+                                    <label for="user_name"><b>User Name</b></label>
+                                    <input type="text" placeholder="Enter Email" name="user_name" id="user_name"
+                                        required>
+
+                                    <label for="email"><b>Email</b></label>
+                                    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+                                    <label for="password"><b>Password</b></label>
+                                    <input type="password" placeholder="Enter Password" name="password" id="password"
+                                        required>
+
+                                    <!-- 
+                                    <label>
+                                        <input type="checkbox" checked="checked" name="remember"
+                                            style="margin-bottom:15px">
+                                        Remember me
+                                    </label> -->
+
+                                    <p>By creating an account you agree to our <a href="#"
+                                            style="color:dodgerblue">Terms &
+                                            Privacy</a>.</p>
+
+                                    <div class="clearfix">
+                                        <button type="button" class="cancelbtn">Cancel</button>
+                                        <button type="submit" class="signupbtn bg-warning">Sign
+                                            Up</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <script src="//code.tidio.co/6qe6yzkqjpby0g6xnqcmxv1hcpeqbur3.js" async></script>
+    </body>
+
+</html>

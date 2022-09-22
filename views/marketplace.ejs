@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/header.ejs')%>
+
+    <body>
+
+        <!-- navigation bar  -->
+        <%- include('./partials/nav.ejs')%>
+
+            <!-- search bar  -->
+            <section class="search-sec">
+                <div class="container">
+                    <form action="#" method="post" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="row p-3">
+                                    <div class="col-lg-4 col-md-4 col-sm-12 p-1 d-flex justify-content-evenly">
+                                        <label for=""><i class="icon fa-solid fa-location-dot fa-2x p-2"></i></label>
+                                        <input type="text" class="form-control search-slt" placeholder="Enter Location">
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-12 p-1 d-flex justify-content-evenly">
+                                        <label for=""><i class="fa-solid fa-carrot fa-2x p-2"></i></i></label>
+                                        <input type="text" class="form-control search-slt" placeholder="Enter Product">
+                                    </div>
+                                    <!-- <div class="col-lg-3 col-md-3 col-sm-12 p-1 mt-2">
+                                        <select class="form-control search-slt" id="exampleFormControlSelect1">
+                                            <option>Mode of Payment</option>
+                                            <option>Cash on Delivery</option>
+                                            <option>E-payment via <em>Gcash</em> (Preferred option)</option>
+                                            <option>Supfly Points</option>
+                                        </select>
+                                    </div> -->
+                                    <div class="col-lg-4 col-md-4 col-sm-12 p-1">
+                                        <button type="button" class="btn btn-danger wrn-btn">Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <section>
+
+                    <div class="container-fluid bg-light">
+
+
+                        <!-- product card  -->
+                        <div class="d-flex justify-content-evenly mt-5 d-sm-flex row">
+
+
+
+                            <div class="d-flex my-3 d-sm-flex ">
+                                <% products.forEach(product=> { %>
+                                    <div class="card m-3 shadow p-3" style="width: 18rem;">
+                                        <img src="        <%= product.productImage%>" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                <%= product.productName%>
+                                            </h5>
+                                            <p class="card-text">
+                                                <%= product.productDescription%>
+                                            </p>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <%= product.productFarm%>
+                                            </li>
+                                            <li class="list-group-item">₱ <%= product.productPrice%> / kilo</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-location-dot"></i>
+                                                <%= product.productLocation%>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <%})%>
+
+                            </div>
+                        </div>
+
+                </section>
+
+                <!-- pagination  -->
+
+                <div class="container d-flex justify-content-center">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+
+
+                <!-- footer  -->
+                <footer class="navbar bg-dark text-center">
+
+                    <div class="container-fluid p-5">
+
+                        <div class="container w-25 my-2">
+                            <svg class="supfly-footer" id="Layer_1" data-name="Layer 1"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155.19 157.42">
+                                <defs>
+                                    <style>
+                                        .cls-1 {
+                                            fill: #234c52;
+                                        }
+
+                                        .cls-2 {
+                                            fill: #9c343a;
+                                        }
+                                    </style>
+                                </defs>
+                                <title>Supfly logo small</title>
+                                <path class="cls-1"
+                                    d="M338.88,403.58c-.75-5.33-1.95-10.79-3.24-10.76-.75,0-.9,1.85-3,4.6a19.43,19.43,0,0,1-3,3.06c-4.18,3.64-11.48,6.31-11.48,6.31-7.28,2.82-11,4.25-16.12,5.06-5.93.95-8.35.35-10.17-.81a8.1,8.1,0,0,1-3.64-4.86c-.73-3.3,1.18-6.54,3.15-8.26,3.82-3.36,7.94-1.08,14.86-2.17,7.53-1.19,12.57-5.46,17.39-9.53,3.81-3.23,10.29-8.83,13.58-18.31,6.64-19.15-5.92-36.06-8.05-38.92-2.66-3.59-6.22-7.42-7.59-6.71-1.84,1,3.17,8.55.88,17.39-2,7.67-8.5,12.55-13.31,16.16a60.49,60.49,0,0,1-12.36,6.93c-.56.23-2.43,1-5,1.86-5,1.67-8.83,2.27-9.76,2.56-17.26,5.34-27.56,19.35-30.28,23.06a45,45,0,0,0-6.6,11.52c-3.94,10.5-2.46,19.84-1.65,24.63,4.94,29,31.68,44.3,34.89,46.08,12.64,7,24.12,8.13,24.88,6.48s-8.37-7.46-9.84-15.65c-.1-.57-.18-1.21-.18-1.21a23.17,23.17,0,0,1,1.44-11.38,25.12,25.12,0,0,1,2.6-4.69c6-8.19,17.73-4.17,29-12.23a31.14,31.14,0,0,0,10.42-13.27A33,33,0,0,0,338.88,403.58Z"
+                                    transform="translate(-184 -322.19)" />
+                                <path class="cls-2"
+                                    d="M250.26,380.21A88.65,88.65,0,0,1,265,368.58c10-6.2,14.32-6.09,14.32-8.05,0-4.2-20-12.41-37.52-6.35-12.54,4.34-10.81,13.13-26,18.53-3.95,1.41-13,4-21.47,6.13-5,1.24-10.38,2.46-10.29,3.16.21,1.62,29.93-2.37,39.39,6.73a40.54,40.54,0,0,0,4.36,3.61c.74.54,9.47,6.78,11.83,4.7.49-.44.28-.78,1.27-3.6a23.93,23.93,0,0,1,1.16-2.71C243.16,388.4,245.07,385.27,250.26,380.21Z"
+                                    transform="translate(-184 -322.19)" />
+                            </svg>
+                        </div>
+
+                        <div class="">
+                            <p></p>
+                            <p class="text-light">Contact Us</p>
+                            <p class="text-light">Privacy Policy</p>
+                            <p class="text-light">Terms and Conditions</p>
+                        </div>
+
+                        <div class="connect container p-2 w-25">
+                            <h3 class="text-light">Connect with us!</h3>
+                            <div class="faBrands">
+                                <i class="fa-brands fa-facebook text-light mx-3"></i>
+                                <i class="fa-brands fa-instagram text-light mx-3"></i>
+                                <i class="fa-brands fa-twitter text-light mx-3"></i>
+                                <i class="fa-solid fa-envelope text-light mx-3"></i>
+                            </div>
+
+                        </div>
+
+                        <!-- mobile view only  -->
+                        <div class="connectMobile container p-2">
+                            <h3 class="text-light">Connect with us!</h3>
+                            <div class="faBrands">
+                                <i class="fa-brands fa-facebook text-light mx-3"></i>
+                                <i class="fa-brands fa-instagram text-light mx-3"></i>
+                                <i class="fa-brands fa-twitter text-light mx-3"></i>
+                                <i class="fa-solid fa-envelope text-light mx-3"></i>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="container">
+
+                        <p class="text-light"><i class="fa-solid fa-copyright"></i> Supfly Corporation. All rights
+                            reserved.</p>
+
+                    </div>
+
+                </footer>
+
+                <script src="//code.tidio.co/6qe6yzkqjpby0g6xnqcmxv1hcpeqbur3.js" async></script>
+    </body>
+
+</html>
